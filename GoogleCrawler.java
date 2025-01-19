@@ -11,11 +11,21 @@ import java.util.Set;
 
 public class GoogleCrawler {
 
-
+    private WebDriver driver ;
 
 
     public static void main(String[] args) {
         System.out.println("Frabat habt rido");
+        System.setProperty("webdriver.gecko.driver", "/Users/farawa/Downloads/geckodriver");
+
+        WebDriver driver = new FirefoxDriver();
+
+        try {
+            driver.get("https://www.google.com");
+            System.out.println("Page Title: " + driver.getTitle());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
