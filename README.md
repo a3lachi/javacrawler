@@ -9,3 +9,9 @@ The compilation goes as follow :
 <pre>
 javac -cp "C:\path\to\selenium-java-<version>.jar;C:\path\to\libs\*" GoogleCrawler.java
 </pre>
+
+## Execution
+To run the crawler enter the following command : 
+<pre>
+java -cp ".:C:\path\to\selenium-java-<version>.jar;C:\path\to\libs\*" GoogleCrawler
+</pre>
