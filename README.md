@@ -7,5 +7,5 @@ Download the Selenium package https://www.selenium.dev/downloads/, after extract
 The compilation goes as follow : 
 
 <pre>
-    javac -cp "C:\path\to\selenium-java-<version>.jar;C:\path\to\libs\*" GoogleCrawler.java
+javac -cp "C:\path\to\selenium-java-<version>.jar;C:\path\to\libs\*" GoogleCrawler.java
 </pre>
