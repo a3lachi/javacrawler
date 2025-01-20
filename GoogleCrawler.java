@@ -4,12 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import java.util.concurrent.*;
+
 
 public class GoogleCrawler {
 
 
     public static void main(String[] args) {
-        // System.setProperty("webdriver.gecko.driver", "/Users/farawa/Downloads/geckodriver");
 
         WebDriver driver = new FirefoxDriver();
 
@@ -29,16 +30,13 @@ public class GoogleCrawler {
         } finally {
             textArea.sendKeys("inurl:\"cgi-bin/koha\"");
             textArea.sendKeys(Keys.RETURN);
-            // WebElement search = driver.findElement(By.id("search_icon"));
-            // try {
-            //     WebElement svg = search.findElement(By.tagName("svg"));
-            //     textArea.sendKeys(Keys.ENTER);
-            //     textArea.sendKeys(Keys.ENTER);
-            //     textArea.sendKeys(Keys.ENTER);
-            // } catch (Exception e) {
-            //     System.out.println("Couldn't press the search button");
-            // }
-            
+        }
+
+        // Solve the captcha
+        try {
+            Thread.sleep(10000); // Sleep for 10 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         WebElement results = null ;
@@ -48,9 +46,13 @@ public class GoogleCrawler {
         } catch (Exception e) {
             System.out.println("Couldn't find the results of the search") ;
         } finally {
-            List<WebElement> divs = results.findElements(By.tagName("div"));
-            System.out.println("Number of <div> elements found: " + divs.size());
+            try {
+                List<WebElement> childElements = parentElement.findElements(By.xpath("./*"));
+                System.out.println("Number of <div> elements found: " + divs.size());
+            }
         }
+
+        
 
 
 
